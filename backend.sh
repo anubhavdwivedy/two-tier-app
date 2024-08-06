@@ -40,5 +40,11 @@ sudo systemctl enable docker
 docker --version
 
 # pull the application from dockerhub
+sudo chown ubuntu  /var/run/docker.sock
+docker pull anubhavdwivedy/flaskapp:latest
+docker pull mysql:5.7
+docker network create twotier
+
+# pull the application from dockerhub
 docker pull anubhavdwivedy/flaskapp:latest
 docker pull mysql:5.7

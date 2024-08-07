@@ -50,12 +50,12 @@ pipeline {
                     sh """
                          ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.BACKEND_PUBLIC_IP} 'chmod +x /home/ubuntu/backend.sh && ./backend.sh' //use the private key path of yours 
                          ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.BACKEND_PUBLIC_IP} 'sudo docker pull  mysql:5.7'
-                         ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.BACKEND_PUBLIC_IP} 'sudo docker run -d -p 3306:3306 abinash2304/backend:new'
+                         ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.BACKEND_PUBLIC_IP} 'sudo docker run -d -p 3306:3306 mysql:5.7'
                     """
                     sh """
                          ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.FRONTEND_PUBLIC_IP} 'chmod +x /home/ubuntu/frontend.sh && ./frontend.sh'
                          ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.FRONTEND_PUBLIC_IP} 'sudo docker pull anubhavdwivedy/flaskapp:latest'
-                         ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.FRONTEND_PUBLIC_IP} 'sudo docker run -d -p 5000:5000 -e DB_HOST=10.0.2.48 anubhavdwivedy/flaskapp:latest'//in db_host we have to use the private ip of the backend
+                         ssh -o StrictHostKeyChecking=no -i /home/anubhav/2-tier-app-key.pem ubuntu@${env.FRONTEND_PUBLIC_IP} 'sudo docker run -d -p 5000:5000 -e DB_HOST=10.0.2.48 anubhavdwivedy/flaskapp:latest' //in db_host we have to use the private ip of the backend
                     """
                     
                 }

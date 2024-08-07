@@ -20,7 +20,7 @@ variable "instance_type" {
 
 variable "key_name" {
   description = "The name of the SSH key pair to use for the instances"
-  default     = "two-tier-app-key1"
+  default     = "two-tier-app-key"
 }
 variable "frontend_port" {
   description = "Port number for the frontend application"

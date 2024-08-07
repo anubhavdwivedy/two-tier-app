@@ -1,11 +1,4 @@
 #!/bin/bash
-
-#uninstall and clean old docker data
-sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras -y
-sudo rm -rf /var/lib/docker
-sudo rm -rf /var/lib/containerd
-
-# Update package list
 sudo apt-get update -y
 
 # Add Docker’s official GPG key

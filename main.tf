@@ -188,7 +188,7 @@ resource "aws_instance" "backend" {
     connection {
       type        = "ssh"
       user        = "ubuntu"  # Update as necessary
-      private_key = file("/home/anubhav/two-tier-app-key1.pem")  # Update with your key file path
+      private_key = file("/home/anubhav/two-tier-app-key.pem")  # Update with your key file path
       host        = self.public_ip
     }
 
